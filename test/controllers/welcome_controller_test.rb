@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class WelcomeControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test 'should index routing' do
+    assert_routing({ path: '/', method: :get }, { controller: 'welcome', action: 'index' })
+  end
+
+
 end
