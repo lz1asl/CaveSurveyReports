@@ -14,6 +14,8 @@ class ErrorsController < ApplicationController
 
       report.save
 
+      ErrorNotifier.send_error_email(report).deliver
+
       render nothing: true, status: 201
     rescue => e
       puts e, e.backtrace

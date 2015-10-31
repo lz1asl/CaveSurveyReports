@@ -51,6 +51,7 @@ gem 'rails_12factor', group: :production
 
 gem 'newrelic_rpm', group: :production
 
+gem 'mail'
 
 ruby '2.2.3'
 
