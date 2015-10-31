@@ -5,6 +5,7 @@
 </head>
 <body>
 <h1>Error <%= @error.id %> reported</h1>
-<p>Some more info here</p>
+<p>CaveSurvey: <%= @error.cave_survey_app[:versionName] %></p>
+<p>Message: <%= @error.message %></p>
 </body>
 </html>

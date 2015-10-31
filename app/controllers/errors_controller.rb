@@ -9,8 +9,9 @@ class ErrorsController < ApplicationController
         android_device: report_body['android_device'],
         cave_survey_app: report_body['cave_survey_app'],
         error: report_body['error'],
-        request: { ip: request.remote_ip }
-      )
+        request: { ip: request.remote_ip },
+        message: report_body['message']
+    )
 
       report.save
 

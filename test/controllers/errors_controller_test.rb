@@ -12,7 +12,8 @@ class ErrorsControllerTest < ActionController::TestCase
     # create
     report = { android_device: { 'MANUFACTURER' => 'some manifacturer', 'MODEL' => 'some model', 'VERSION' => '4.0.4' },
                cave_survey_app: { 'version' => '1.16'},
-               error: 'Error doing something'
+               error: 'Error doing something',
+               message: 'Description here'
     }
     post :create, ActiveSupport::JSON.encode(report), format: 'json'
     assert_response :success
@@ -24,13 +25,13 @@ class ErrorsControllerTest < ActionController::TestCase
     # verify
     error_report = ErrorReport.first
     assert_equal report[:error], error_report[:error]
-    assert_equal report[:cave_survey_app], eval(error_report[:cave_survey_app])
-    assert_equal report[:android_device], eval(error_report[:android_device])
+    assert_equal report[:cave_survey_app], error_report[:cave_survey_app]
+    assert_equal report[:android_device], error_report[:android_device]
+    assert_equal report[:message], error_report[:message]
     assert !error_report[:request].empty?
 
   end
 
-=begin
   test 'should handle errors' do
     post :create, '', format: 'json'
     assert_response :bad_request
@@ -44,7 +45,6 @@ class ErrorsControllerTest < ActionController::TestCase
     post :create, ActiveSupport::JSON.encode({error: '123'}), format: 'json'
     assert_response :bad_request
   end
-=end
 
   test 'should route to create error report' do
     assert_routing({ path: 'errors', method: :post }, { controller: 'errors', action: 'create' })
