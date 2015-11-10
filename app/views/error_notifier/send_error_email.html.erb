@@ -5,7 +5,8 @@
 </head>
 <body>
 <h1>Error <%= @error.id %> reported</h1>
-<p>CaveSurvey: <%= @error.cave_survey_app[:versionName] %></p>
-<p>Message: <%= @error.message %></p>
+<p>CaveSurvey:  <%= @error.cave_survey_app['versionName'] %></p>
+<p>Device:      <%= @error.android_device['MODEL'] %></p>
+<p>Message:     <%= @error.message %></p>
 </body>
 </html>
