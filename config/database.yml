@@ -34,11 +34,12 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: cavesurveyreports_test
-  username: postgres
-  password: root
-  host: localhost
+  database: d5skk1u2oii1eh
+  username: htiezhqdkfqnep
+  password: ENV['test_db_password']
+  host: ec2-107-21-224-11.compute-1.amazonaws.com
   port: 5432
+  sslmode: 'require'
 
 
 production:
