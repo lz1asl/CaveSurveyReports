@@ -1,5 +1,6 @@
 # CaveSurveyReports
 App to collect [CaveSurvey](https://github.com/lz1asl/CaveSurvey) user error reports.
+At some later point it could become a hub to backup or share surveys.
 
 Back-end written in Ruby on Rails and hosted at Heroku.
 
